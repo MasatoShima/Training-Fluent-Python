@@ -60,15 +60,38 @@ print(len(deck))
 print(deck[0])
 print(deck[-1])
 
-# random ライブラリよりランダムな要素の取得も行える
+# random ライブラリよりランダムな要素の取得
 print(choice(deck))
 
-# loop による要素の取得も可能に
+# loop による要素の取得
 for card in deck:
 	print(card)
 
-# 要素の順の反転も可能
+# 要素順の反転
 for card in reversed(deck):
+	print(card)
+
+# in 演算子による要素の存在確認
+print(Card(rank="Q", suit="hearts") in deck)
+print(Card(rank="X", suit="hearts") in deck)
+
+# カードの強さで sort
+suit_values = {
+	"spades": 3,
+	"hearts": 2,
+	"diamonds": 1,
+	"clubs": 0
+}
+
+
+def spades_high(card):
+	rank_value = FrenchDeck.ranks.index(card.rank)
+	suit_value = suit_values[card.suit]
+	value = rank_value * len(suit_values) + suit_value
+	return value
+
+
+for card in sorted(deck, key=spades_high):
 	print(card)
 
 
