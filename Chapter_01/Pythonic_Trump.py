@@ -10,6 +10,7 @@ Created on: 2019/08/12
 # ----- Import Library
 # **************************************************
 import collections
+from typing import *
 from random import choice
 
 
@@ -17,6 +18,8 @@ from random import choice
 # ----- Variables
 # **************************************************
 Card = collections.namedtuple("Card", ["rank", "suit"])
+
+TypeCard = NamedTuple("Card", [("rank", int), ("suit", str)])
 
 
 # **************************************************
