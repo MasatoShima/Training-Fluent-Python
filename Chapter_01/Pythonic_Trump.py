@@ -78,6 +78,7 @@ for card in reversed(deck):
 print(Card(rank="Q", suit="hearts") in deck)
 print(Card(rank="X", suit="hearts") in deck)
 
+# %%
 # カードの強さで sort
 suit_values = {
 	"spades": 3,
@@ -87,9 +88,10 @@ suit_values = {
 }
 
 
-def spades_high(card):
-	rank_value = FrenchDeck.ranks.index(card.rank)
-	suit_value = suit_values[card.suit]
+# 引数で渡された card の強さを戻り値として返す
+def spades_high(c):
+	rank_value = FrenchDeck.ranks.index(c.rank)
+	suit_value = suit_values[c.suit]
 	value = rank_value * len(suit_values) + suit_value
 	return value
 
